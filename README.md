@@ -1,12 +1,27 @@
-# TIME BASED TRIGGER
+# Pre-requirements
+Node JS: https://nodejs.org/en/
+
+# Install NPM Dependencies
+Use the command: `npm install` to install the dependencies listed in the package.json file.
+
+# Compile Changes
+Compile the TypeScript files to produce the executable JavaScript file with the tsc compiler.
+
+You can use the tsc executable installed within the TypeScript dependency under node_modules/, or use an instance of tsc installed globally.
+```
+# node_modules/ tsc. Generates price_trigger.js
+./node_modules/typescript/bin/tsc price_trigger.ts
+
+# Global tsc. Generates time_trigger.js
+tsc time_trigger.ts
+```
+
+# Time Based Trigger
 
 Buy X amount of $XTZ worth of $hDAO every N seconds. N seconds will have to pass before the first swap is triggered. The time between swaps starts when 
 the latest swap is successfully applied. If a swap is unsuccessful it will retry until it is.
 
 Exit the program with CTRL+C
-
-## Pre-requirements
-Node JS: https://nodejs.org/en/
 
 ## Run
 Open your terminal and enter the following command. Replace the {} arguments with your configuration.
@@ -23,17 +38,11 @@ Required:
 ## Example: 
 `$ node time_trigger.js XXXXXXX 1800 10.11 3` Will buy 10.11 XTZ worth of hDAO with a slippage of 3% every half-hour.
 
-Developed by regulr.tez. 
-Reach out to me on twitter or telegram @regulrjoe if you experience any issues.
-
-# PRICE BASED TRIGGER
+# Price Based Trigger
 
 Buy X amount of $XTZ worth of hDAO every time its price goees below a certain threshold.
 
 Exit the program with CTRL+C
-
-## Pre-requirements
-Node JS https://nodejs.org/en/
 
 ## Run
 Open your terminal and enter the following command.
@@ -53,6 +62,3 @@ Optional:
 
 ## Example: 
 `$ node price_trigger.js XXXXXXX 3.99 10.11 3` Will buy 10.11 XTZ worth of hDAO with a slippage of 3% every time the hDAO price is equal to or below 3.99 XTZ. It will trigger once and then exit.
-
-Developed by regulr.tez. 
-Reach out to me on twitter or telegram @regulrjoe if you experience any issues.
